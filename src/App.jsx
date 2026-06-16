@@ -10,6 +10,7 @@ import { PublicLayout } from "./layouts/PublicLayout";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { Dashboard } from "./components/adminComponents/Dashboard/Dashboard";
+import { Login } from "./components/Login/Login";
 
 function App() {
   return (
@@ -25,8 +26,8 @@ function App() {
         </Route>
 
         {/* IMPORTAR EL COMPONENTE LOGIN */}
-        {/* <Route path="/admin/login" element={<Login />} /> */}
-        <Route path="/admin/login" element={<h2>LOGIN</h2>} />
+        <Route path="/admin/login" element={<Login />} />
+       
         {/* -----------------------------ADMIN--------------------------- */}
         <Route
           path="/admin"
