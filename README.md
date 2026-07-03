@@ -4,7 +4,7 @@ E-commerce de productos para gatos desarrollado como Trabajo Práctico para **Ta
 
 ## 🔗 Demo en vivo
 
-[https://TU-SITIO.netlify.app](https://TU-SITIO.netlify.app) <!-- reemplazar con tu URL real de Netlify -->
+[https://talento-tech-proyecto-react-mfc26122.netlify.app/ ]
 
 ## ✨ Funcionalidades
 
