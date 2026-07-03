@@ -5,6 +5,7 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartView } from "./components/Cart/CartView";
 import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer";
+import { ProductListAdmin } from "./components/adminComponents/ProductListAdmin";
 import { ProductSuccess } from "./components/adminComponents/ProductSuccess";
 import { PublicLayout } from "./layouts/PublicLayout";
 import { AdminLayout } from "./layouts/AdminLayout";
@@ -41,7 +42,9 @@ function App() {
           <Route index element={<Navigate to={"dashboard"} />} />
           <Route path="dashboard" element={<Dashboard />} />
 
+          <Route path="products" element={<ProductListAdmin />} />
           <Route path="products/new" element={<ProductFormContainer />} />
+          <Route path="products/edit/:id" element={<ProductFormContainer />} />
           <Route path="products/success/:id" element={<ProductSuccess />} />
         </Route>
       </Routes>

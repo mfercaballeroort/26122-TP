@@ -1,7 +1,11 @@
+import { CATEGORIES } from "../../utils/categories";
+
 export const ProductFormUI = ({
   product,
   errors,
   loading,
+  isEditMode = false,
+  existingImage = null,
   onChange,
   onFileChange,
   onSubmit,
@@ -9,7 +13,7 @@ export const ProductFormUI = ({
   return (
     <section>
       <form className="product-form" onSubmit={onSubmit}>
-        <h2>Agregar nuevo producto</h2>
+        <h2>{isEditMode ? "Editar producto" : "Agregar nuevo producto"}</h2>
 
         <div>
           <label>Nombre:</label>
@@ -36,12 +40,14 @@ export const ProductFormUI = ({
 
         <div>
           <label>Categoría:</label>
-          <input
-            type="text"
-            name="category"
-            value={product.category}
-            onChange={onChange}
-          />
+          <select name="category" value={product.category} onChange={onChange}>
+            <option value="">Seleccioná una categoría</option>
+            {CATEGORIES.map((cat) => (
+              <option key={cat.slug} value={cat.slug}>
+                {cat.label}
+              </option>
+            ))}
+          </select>
           {errors.category && <p className="error">{errors.category}</p>}
         </div>
 
@@ -57,12 +63,22 @@ export const ProductFormUI = ({
 
         <div>
           <label>Imagen:</label>
+          {isEditMode && existingImage && (
+            <div className="current-image-preview">
+              <img src={existingImage} alt="Imagen actual" />
+              <p>Imagen actual. Elegí un archivo solo si querés reemplazarla.</p>
+            </div>
+          )}
           <input type="file" accept="image/*" onChange={onFileChange} />
           {errors.file && <p className="error">{errors.file}</p>}
         </div>
 
         <button className="btn" type="submit" disabled={loading}>
-          {loading ? "Guardando..." : "Guardar"}
+          {loading
+            ? "Guardando..."
+            : isEditMode
+              ? "Guardar cambios"
+              : "Guardar"}
         </button>
 
         {errors.general && <p className="error">{errors.general}</p>}

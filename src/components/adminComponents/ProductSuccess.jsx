@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export const ProductSuccess = () => {
@@ -10,11 +9,19 @@ export const ProductSuccess = () => {
 
       <h2>Producto cargado con exito</h2>
       <p>ID de producto: {id}</p>
-      <p>Puede cargar otro haciendo click en el boton.</p>
+      <p>¿Qué querés hacer ahora?</p>
 
-      <Link className="btn bg-primary primary" to="/admin" replace>
-        Agregar otro producto
-      </Link>
+      <div className="success-actions">
+        <Link className="btn bg-primary primary" to="/admin/products/new">
+          ➕ Agregar otro producto
+        </Link>
+        <Link className="btn primary" to="/admin/products">
+          📋 Ver productos
+        </Link>
+        <Link className="btn primary" to="/admin/dashboard">
+          🏠 Volver al panel
+        </Link>
+      </div>
     </section>
   );
 };

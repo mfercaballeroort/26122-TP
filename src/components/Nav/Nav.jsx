@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useCart } from "../../context/CartContext";
+import { CATEGORIES } from "../../utils/categories";
 // import styles from "./Nav.module.css";
 
 export const Nav = () => {
@@ -15,9 +16,11 @@ export const Nav = () => {
         <li>
           <Link to={"/"}>Home</Link>
         </li>
-        <li>
-          <Link to={"/category/dama"}>Dama</Link>
-        </li>
+        {CATEGORIES.map((cat) => (
+          <li key={cat.slug}>
+            <Link to={`/category/${cat.slug}`}>{cat.label}</Link>
+          </li>
+        ))}
         <li>
           <Link to={"/carrito"}>
             Carrito

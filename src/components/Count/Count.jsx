@@ -1,33 +1,20 @@
-import { useState } from "react";
 import "./Count.css";
 
-export const Count = () => {
-  const [count, setCount] = useState(0);
-
-  // Funciones para incrementar y decrementar
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
+export const Count = ({ quantity, onIncrement, onDecrement, min = 0 }) => {
   return (
     <div className="count-container">
       <button
         className="btn primary"
-        onClick={decrement}
-        disabled={count === 0}
+        type="button"
+        onClick={onDecrement}
+        disabled={quantity <= min}
       >
         -
       </button>
 
-      <p>Seleccion: {count}</p>
+      <p>Cantidad: {quantity}</p>
 
-      <button className="btn primary" onClick={increment}>
+      <button className="btn primary" type="button" onClick={onIncrement}>
         +
       </button>
     </div>

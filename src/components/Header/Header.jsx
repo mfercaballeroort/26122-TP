@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/react.svg";
 import { Nav } from "../Nav/Nav";
 
 import "./Header.css";
@@ -9,8 +8,10 @@ export const Header = () => {
     <header>
       <div className="logo-container">
         <Link to={"/"}>
-          <img src={logo} />
-          <span>Reactiva</span>
+          <span className="logo-emoji" role="img" aria-label="gato">
+            🐱
+          </span>
+          <span>Michi Market</span>
         </Link>
       </div>
       <Nav />

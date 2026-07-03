@@ -27,3 +27,7 @@
   font-size: 2rem;
   padding: 1rem;
 }
+.cart-item-subtotal {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
